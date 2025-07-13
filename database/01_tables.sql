@@ -65,3 +65,30 @@ CREATE INDEX idx_reviews_created_at ON reviews (created_at);
 CREATE INDEX idx_reviews_tsvector ON reviews USING gin(ts_vector);
 CREATE INDEX idx_embedding_vector ON review_embeddings USING ivfflat (embedding_vector vector_l2_ops)
 WITH (lists = 100);
+
+
+-- ФУНКЦИЯ: Обновления поля created_at
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.created_at = CURRENT_TIMESTAMP;
+   RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+-- Автоматическое обновление created_at при UPDATE
+CREATE TRIGGER trg_update_reviews_timestamp
+BEFORE UPDATE ON reviews
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER trg_update_sentiment_timestamp
+BEFORE UPDATE ON sentiment_analysis
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER trg_update_embeddings_timestamp
+BEFORE UPDATE ON review_embeddings
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();

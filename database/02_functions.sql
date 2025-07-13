@@ -1,4 +1,4 @@
--- Обновление ts_vector
+-- ФУНКЦИЯ: Обновление ts_vector
 CREATE OR REPLACE FUNCTION update_review_tsvector()
 RETURNS TRIGGER AS $$
 BEGIN
