@@ -5,7 +5,7 @@ from python.db_connection import DatabaseConnection
 # Абсолютный путь к корню проекта
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SQL_FILES = ["01_tables.sql", "02_functions.sql"]
+SQL_FILES = ["01_tables.sql", "02_functions.sql", "03_triggers.sql"]
 
 def execute_sql_file(conn, file_path):
     with open(file_path, "r", encoding="utf-8") as f:

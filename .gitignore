@@ -1,0 +1,44 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+env/
+venv/
+
+# VSCode / PyCharm / JetBrains
+.idea/
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files
+*.csv
+!database/sample_data.csv
+*.tsv
+*.json
+*.log
+
+# Environment files
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Bytecode & builds
+*.egg-info/
+dist/
+build/
+
+# PostgreSQL dump/temp
+*.sql~
+*.dump
+
+# Misc
+*.bak
+*.swp

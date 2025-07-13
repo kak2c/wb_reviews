@@ -1,25 +1,30 @@
 FROM postgres:15
 
-# Установим pgvector и поддержку PL/Python
+# Установка расширений
 RUN apt-get update && \
     apt-get install -y \
         postgresql-15-pgvector \
         postgresql-plpython3-15 \
         python3-pip \
         python3-dev \
-        libpq-dev \
-        gcc \
-        wget \
+        build-essential \
+        git \
         curl && \
     rm -rf /var/lib/apt/lists/*
 
-# Обновим pip и установим Python-библиотеки для NLP
-RUN pip3 install --upgrade pip && \
-    pip3 install psycopg2-binary python-dotenv tqdm torch transformers scikit-learn nltk sentence-transformers \
+# Копируем зависимости и устанавливаем Python-библиотеки
+COPY requirements.txt /app/requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
-# Скачаем русские стоп-слова в нужный каталог для NLTK
-RUN mkdir -p /var/lib/postgresql/nltk_data && \
-    python3 -m nltk.downloader stopwords -d /var/lib/postgresql/nltk_data
+# Копируем весь проект в /app
+COPY . /app
+WORKDIR /app
 
-# Открываем порт для PostgreSQL
+# Устанавливаем переменные окружения
+ENV PYTHONUNBUFFERED=1
+
+# Открываем порт PostgreSQL
 EXPOSE 5432
+
+# Запускаем Python-инициализацию
+CMD ["python3", "python/init_db.py"]

@@ -56,6 +56,14 @@ CREATE TABLE review_embeddings (
     model_version VARCHAR(100) DEFAULT 'sentence-transformers/all-MiniLM-L6-v2',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Таблица с логами
+CREATE TABLE review_logs (
+  log_id SERIAL PRIMARY KEY,
+  review_id INTEGER REFERENCES reviews(review_id),
+  old_text TEXT,
+  new_text TEXT,
+  changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 -- Индексы
 CREATE INDEX idx_reviews_product_id ON reviews (product_id);
@@ -65,30 +73,3 @@ CREATE INDEX idx_reviews_created_at ON reviews (created_at);
 CREATE INDEX idx_reviews_tsvector ON reviews USING gin(ts_vector);
 CREATE INDEX idx_embedding_vector ON review_embeddings USING ivfflat (embedding_vector vector_l2_ops)
 WITH (lists = 100);
-
-
--- ФУНКЦИЯ: Обновления поля created_at
-CREATE OR REPLACE FUNCTION update_timestamp()
-RETURNS TRIGGER AS $$
-BEGIN
-   NEW.created_at = CURRENT_TIMESTAMP;
-   RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-
--- Автоматическое обновление created_at при UPDATE
-CREATE TRIGGER trg_update_reviews_timestamp
-BEFORE UPDATE ON reviews
-FOR EACH ROW
-EXECUTE FUNCTION update_timestamp();
-
-CREATE TRIGGER trg_update_sentiment_timestamp
-BEFORE UPDATE ON sentiment_analysis
-FOR EACH ROW
-EXECUTE FUNCTION update_timestamp();
-
-CREATE TRIGGER trg_update_embeddings_timestamp
-BEFORE UPDATE ON review_embeddings
-FOR EACH ROW
-EXECUTE FUNCTION update_timestamp();

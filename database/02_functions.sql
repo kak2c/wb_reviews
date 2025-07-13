@@ -125,3 +125,13 @@ try:
 except Exception as e:
     plpy.error(f"Ошибка генерации эмбеддинга: {str(e)}")
 $$ LANGUAGE plpython3u;
+
+
+-- ФУНКЦИЯ: Обновления поля created_at
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.created_at = CURRENT_TIMESTAMP;
+   RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;

@@ -4,31 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19cfcf6b-a3ca-4a9f-9d65-84a77e93bae5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/wb_NLP_PostgreSQL.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/basic_analysis.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/01_tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/02_functions.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/03_sample_data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/prepared_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/data_loader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/db_connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/embedding_generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/init_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/nlp_processor.py" afterDir="false" />
+    <list default="true" id="19cfcf6b-a3ca-4a9f-9d65-84a77e93bae5" name="Changes" comment="Добавлено:&#10;ФУНКЦИЯ: Обновления поля created_at (помещена в 1 файл)&#10;Автоматическое обновление created_at при UPDATE&#10;advanced_analysis.py с функциями &quot;Похожие&quot; и &quot;Аномальные&quot; отзывы.">
+      <change afterPath="$PROJECT_DIR$/database/03_triggers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/python/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/01_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/01_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/02_functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/02_functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/03_sample_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/init_db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +32,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="3f6475d1-4cdf-47d7-a698-3d7e485a27d1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -58,6 +48,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.advanced_analysis.executor": "Run",
     "Python.data_loader.executor": "Run",
     "Python.db_connection.executor": "Run",
     "Python.embedding_generator.executor": "Run",
@@ -67,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/kak2c/PycharmProjects/wb_NLP_PostgreSQL/config",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -80,6 +71,28 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.embedding_generator">
+    <configuration name="advanced_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="wb_NLP_PostgreSQL" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/advanced_analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="data_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wb_NLP_PostgreSQL" />
       <option name="ENV_FILES" value="" />
@@ -168,35 +181,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="wb_NLP_PostgreSQL" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.embedding_generator" />
-        <item itemvalue="Python.nlp_processor" />
         <item itemvalue="Python.data_loader" />
         <item itemvalue="Python.init_db" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.advanced_analysis" />
+        <item itemvalue="Python.nlp_processor" />
       </list>
     </recent_temporary>
   </component>
@@ -216,6 +207,39 @@
       <option name="presentableId" value="Default" />
       <updated>1752144402402</updated>
     </task>
+    <task id="LOCAL-00001" summary="First version of study case">
+      <option name="closed" value="true" />
+      <created>1752410426653</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752410426653</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Добавлено:&#10;ФУНКЦИЯ: Обновления поля created_at (помещена в 1 файл)&#10;Автоматическое обновление created_at при UPDATE&#10;advanced_analysis.py с функциями &quot;Похожие&quot; и &quot;Аномальные&quot; отзывы.">
+      <option name="closed" value="true" />
+      <created>1752418533317</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1752418533317</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First version of study case" />
+    <MESSAGE value="Добавлено:&#10;ФУНКЦИЯ: Обновления поля created_at (помещена в 1 файл)&#10;Автоматическое обновление created_at при UPDATE&#10;advanced_analysis.py с функциями &quot;Похожие&quot; и &quot;Аномальные&quot; отзывы." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;ФУНКЦИЯ: Обновления поля created_at (помещена в 1 файл)&#10;Автоматическое обновление created_at при UPDATE&#10;advanced_analysis.py с функциями &quot;Похожие&quot; и &quot;Аномальные&quot; отзывы." />
   </component>
 </project>
